@@ -104,6 +104,7 @@ var _ = ginkgo.Describe("[csi-block-vanilla] [csi-supervisor] [csi-block-vanilla
 			ginkgo.By("CNS_TEST: Running for vanilla k8s setup")
 			scParameters = nil
 			storageClassName = "nginx-sc-default"
+			scParameters[scParamStoragePolicyName] = storagePolicyName
 		} else {
 			ginkgo.By("CNS_TEST: Running for WCP setup")
 			profileID := e2eVSphere.GetSpbmPolicyID(storagePolicyName)
@@ -299,6 +300,7 @@ var _ = ginkgo.Describe("[csi-block-vanilla] [csi-supervisor] [csi-block-vanilla
 			ginkgo.By("CNS_TEST: Running for vanilla k8s setup")
 			scParameters = nil
 			storageClassName = "nginx-sc-parallel"
+			scParameters[scParamStoragePolicyName] = storagePolicyName
 		} else {
 			storageClassName = defaultNginxStorageClassName
 			ginkgo.By("Running for WCP setup")
